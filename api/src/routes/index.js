@@ -42,7 +42,7 @@ router.post("/sequence", async (req, res, next)=>{
                 countsequence,
                 countnosequence
             })
-            res.status(200).send(newSequence)
+            res.status(200).send({status: "200"})
         } else{
             countnosequence = 0
             const newSequence = await Sequences.create({
@@ -50,7 +50,7 @@ router.post("/sequence", async (req, res, next)=>{
                 countsequence,
                 countnosequence
             })
-            res.status(403).send(newSequence)
+            res.status(201).send({status: "403"})
         }
     } catch(e) {
         next(e)
