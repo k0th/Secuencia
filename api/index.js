@@ -22,10 +22,11 @@ const { conn } = require('./src/db.js');
 const cookieParser = require('cookie-parser');
 let port = process.env.PORT || 3001
 
+server.use(cookieParser());
+
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(port, () => {
-    server.use(cookieParser());
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
