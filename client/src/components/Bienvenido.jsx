@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
+import styles from './bienvenido.module.css'
 
 export default function Bienvenido(){
 
@@ -43,13 +44,15 @@ export default function Bienvenido(){
     //console.log("Soy el console log del status", status)
 
     return( 
-    <div>
+    <div className={styles.container}>
+        <div className={styles.item}>
         <form>
-        <label>Ingresa aqui tu cadena</label>
-        <input onChange={onInputChange} type='text' name="chain" placeholder="Cadena"></input>
-        <button onClick={onSend}>ENVIAR CADENA</button>
-        <button onClick={onGet}>OBTENER ESTADÍSTICAS</button>
-        <div>
+        <label  className={styles.label}>Ingresa aqui tu cadena:</label>
+        <br></br>
+        <input onChange={onInputChange} type='text' name="chain" placeholder="Cadena"  className={styles.input}></input>
+        <button onClick={onSend} className={styles.botones}>ENVIAR CADENA</button>
+        <button onClick={onGet} className={styles.botones}>OBTENER ESTADÍSTICAS</button>
+        <div className={styles.secuencias}>
         {
             data? <div>
                 <p>Count Sequence String: {data.count_sequence_string}</p> 
@@ -57,7 +60,7 @@ export default function Bienvenido(){
                 </div> : <p>No existe información</p>
         }
         </div>
-        <div>
+        <div className={styles.status}>
         {
             status? <div>
                 <p>Status: {status}</p> 
@@ -65,5 +68,6 @@ export default function Bienvenido(){
         }
         </div>
         </form>
+        </div>
     </div>)
 }
