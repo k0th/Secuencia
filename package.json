@@ -2,6 +2,7 @@
   "dependencies": {
     "body-parser": "*",
     "express": "*",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "node": "api/app.js"
   }
 }
